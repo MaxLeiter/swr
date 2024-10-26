@@ -60,7 +60,10 @@ export interface PublicConfiguration<
    *  @defaultValue 5000
    */
   errorRetryInterval: number
-  /** max error retry count */
+  /** 
+  * max error retry count
+  * @defaultValue undefined
+  */
   errorRetryCount?: number
   /**
    * timeout to trigger the onLoadingSlow event in milliseconds
@@ -82,6 +85,8 @@ export interface PublicConfiguration<
    *  * Disabled by default: `refreshInterval = 0`
    *  * If set to a number, polling interval in milliseconds
    *  * If set to a function, the function will receive the latest data and should return the interval in milliseconds
+   * @defaultValue undefined
+   *
    */
   refreshInterval?: number | ((latestData: Data | undefined) => number)
   /**
@@ -92,6 +97,8 @@ export interface PublicConfiguration<
   refreshWhenHidden?: boolean
   /**
    * polling when the browser is offline (determined by `navigator.onLine`)
+   * @defaultValue false
+   *
    */
   refreshWhenOffline?: boolean
   /**
@@ -108,6 +115,7 @@ export interface PublicConfiguration<
   revalidateOnReconnect: boolean
   /**
    * enable or disable automatic revalidation when component is mounted
+   * @defaultValue false
    */
   revalidateOnMount?: boolean
   /**
@@ -135,6 +143,8 @@ export interface PublicConfiguration<
   /**
    * initial data to be returned (note: ***This is per-hook***)
    * @link https://swr.vercel.app/docs/with-nextjs
+   * @defaultValue undefined
+   *
    */
   fallbackData?: Data | Promise<Data>
   /**
